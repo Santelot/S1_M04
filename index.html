@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playbook</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            padding: 20px;
+        }
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .banner {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        .banner .title {
+            font-size: 1.2em;
+            display: flex;
+            justify-content: space-between;
+        }
+        .banner .subtitle {
+            font-size: 1em;
+            margin-top: 5px;
+            border-top: 1px solid white;
+            padding-top: 5px;
+        }
+        .content {
+            display: none;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+        .section {
+            margin-bottom: 15px;
+        }
+        .step-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+        .section-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            text-align: right;
+        }
+        .dialogue {
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px 0;
+            text-align: right;
+            font-style: italic;
+        }
+        .dropdown {
+            margin-bottom: 20px;
+        }
+        .dropdown select {
+            font-size: 1em;
+            padding: 5px;
+            margin-left: 10px;
+        }
+        .time-title {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+    </style>
+    <script>
+        function updateActivities() {
+            var selectedTime = document.getElementById('time-select').value;
+            var activities = document.getElementsByClassName('activity');
+
+            document.getElementById('selected-time').innerText = "Tiempo efectivo de clase: " + selectedTime + " minutos";
+
+            for (var i = 0; i < activities.length; i++) {
+                activities[i].style.display = 'block';
+            }
+
+            if (selectedTime === '45') {
+                document.getElementById('activity-2').style.display = 'none';
+            } else if (selectedTime === '40') {
+                document.getElementById('activity-2').style.display = 'none';
+                document.getElementById('activity-4').style.display = 'none';
+            }
+        }
+
+        function toggleContent(id) {
+            var content = document.getElementById(id);
+            if (content.style.display === "none") {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<body>
+
+<div class="header">
+    <h1>Playbook - S1 - M04</h1>
+</div>
+
+<div class="container">
+    <div class="dropdown">
+        <label for="time-select">Tiempo efectivo de Clase:</label>
+        <select id="time-select" onchange="updateActivities()">
+            <option value="50">50 minutos</option>
+            <option value="45">45 minutos</option>
+            <option value="40">40 minutos</option>
+        </select>
+    </div>
+
+    <h2 id="selected-time" class="time-title">Tiempo efectivo de clase: 50 minutos</h2>
+
+<!-- Actividad 1 (4 pasos) -->
+<div id="activity-1" class="activity">
+    <div class="banner" onclick="toggleContent('ritual_gnius_club')">
+        <div class="title">
+            <span>🎉 Actividad 1: Saludo y Ritual Gnius Club (4 pasos)</span>
+            <span>⏰ Tiempo Total: 3 minutos</span>
+        </div>
+        <div class="subtitle">Introducción a la clase y objetivos del día</div>
+    </div>
+    <div id="ritual_gnius_club" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (0.5 minutos): Proyectar Diapositiva 2 "Gnius Club".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">¡Hola, Genios! Hoy vamos a poner en práctica todo lo que aprendimos en la misión anterior. Prepárense para explorar Tinkercad y empezar a crear sus propios modelos en 3D.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (1 minuto): Proyectar Diapositiva 3 "¿Cómo están?".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Antes de comenzar, me gustaría saber cómo se sienten. Si están listos para crear, denme un pulgar arriba. Si necesitan un momento para despejarse, denme un pulgar en medio. Esto nos ayudará a saber cómo está el ánimo en el grupo hoy.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (0.5 minutos): Proyectar Diapositiva 4 "Gracias por Asistir".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Como siempre, antes de empezar, tomémonos un momento para agradecer por estar aquí. Juntemos las manos y digamos "Gracias". Este pequeño ritual nos ayuda a enfocarnos y estar presentes en la misión de hoy.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 4 (1 minuto): Proyectar Diapositiva 5 "Objetivos de la Misión".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Hoy tenemos dos objetivos importantes: <br> 1. Navegar por Tinkercad y usar sus herramientas básicas. <br> 2. Construir un árbol usando diferentes formas en la plataforma. ¡Es hora de poner manos a la obra!</div>
+        </div>
+    </div>
+</div>
+<!-- Actividad 2 (4 pasos) -->
+<div id="activity-2" class="activity">
+    <div class="banner" onclick="toggleContent('state_change')">
+        <div class="title">
+            <span>🧘 Actividad 2: State Change (4 pasos)</span>
+            <span>⏰ Tiempo Total: 3 minutos</span>
+        </div>
+        <div class="subtitle">Relajación y concentración antes de trabajar en Tinkercad</div>
+    </div>
+    <div id="state_change" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (0.5 minutos): Proyectar Diapositiva 6 "Manos Mágicas".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Antes de ponernos a trabajar en Tinkercad, vamos a hacer una breve actividad que nos ayudará a relajar los ojos y mejorar nuestra concentración. Esta actividad, llamada "Manos Mágicas", es ideal para usar cada vez que trabajen diseñando en 3D en la computadora.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (1 minuto): Proyectar Diapositiva 7 "Frota tus Manos".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Todos, froten sus manos rápidamente hasta que sientan calor en las palmas. Este calor es energía que vamos a usar para relajar nuestros ojos y prepararnos para concentrarnos mejor.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (1 minuto): Proyectar Diapositiva 8 "Relajación".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Ahora, detengan el frotamiento y coloquen suavemente sus manos calientes sobre sus ojos cerrados. Sientan cómo el calor relaja la tensión en sus ojos y los ayuda a descansar. Manténganlas ahí por unos segundos, respiren profundamente y dejen que la calma los invada.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 4 (0.5 minutos): Proyectar Diapositiva 9 "Concentración".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Retiren sus manos lentamente, abran los ojos y sientan la diferencia. Ahora están más relajados y su mente está lista para concentrarse en la creación de su diseño en 3D.</div>
+        </div>
+    </div>
+</div>
+<!-- Actividad 3 (6 pasos) -->
+<div id="activity-3" class="activity">
+    <div class="banner" onclick="toggleContent('challenge')">
+        <div class="title">
+            <span>🚀 Actividad 3: Challenge (6 pasos)</span>
+            <span>⏰ Tiempo Total: 36 minutos</span>
+        </div>
+        <div class="subtitle">Desafío del Árbol Artificial en Tinkercad</div>
+    </div>
+    <div id="challenge" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (2 minutos): Proyectar Diapositiva 10 "El Desafío del Árbol Artificial".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Hoy vamos a trabajar en algo realmente interesante. Imaginen que estamos colonizando un planeta donde el suelo no es apto para plantar árboles. Necesitamos crear máquinas que puedan cumplir algunas de las funciones de los árboles, como transformar CO2 en oxígeno. Su reto es diseñar su visión de un árbol artificial en Tinkercad.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (1 minuto): Proyectar Diapositiva 11 "Reglas del Desafío".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Para este desafío, tienen que usar por lo menos 30 elementos o formas básicas en su diseño. Pueden dejar volar su imaginación y crear el árbol artificial que piensen sería más útil en un entorno así. Recuerden que este árbol no tiene que parecerse a un árbol común, ¡pueden ser tan creativos como quieran!</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (2 minutos): Proyectar Diapositiva 12 "Inspírate y Crea".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Si no saben por dónde empezar, piensen en qué características tendría un árbol en ese planeta. Tal vez sea más alto para captar más luz, o tenga partes mecánicas para transformar CO2 en oxígeno. Lo importante es que practiquen utilizando todas las herramientas que aprendimos en Tinkercad. ¡Vamos a comenzar!</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 4 (25 minutos): Proyectar Diapositiva 13 "Tiempo de Creación".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Tienen 25 minutos para trabajar en su diseño. Asegúrense de usar al menos 30 elementos diferentes y de pensar en cómo funcionaría su árbol artificial en ese planeta. Recuerden que pueden pedir ayuda si la necesitan. ¡Manos a la obra!</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 5 (5 minutos): Proyectar Diapositiva 14 "Conclusión del Desafío".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">¡Tiempo! Es momento de detenerse y ver lo que han logrado. Estoy seguro de que cada árbol es único y refleja su creatividad. Vamos a tomarnos 3 minutos para revisar los árboles de sus compañeros, para lo cual vamos a convertir el salón en una galería. Dejen en sus lugares sus computadoras y pónganse de pie, van a tener 3 minutos para pasear por nuestra galería de arte y ver el trabajo que hicieron sus compañeros. ¡Adelante!</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 6 (1 minuto): Proyectar Diapositiva 15 "Objetivos de la Misión".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Hoy logramos dos cosas importantes: <br> 1. Navegar por Tinkercad y usar sus herramientas básicas. <br> 2. Construir un árbol usando diferentes formas en la plataforma. ¡Excelente trabajo, Genios!</div>
+        </div>
+    </div>
+</div>
+<!-- Actividad 4 (3 pasos) -->
+<div id="activity-4" class="activity">
+    <div class="banner" onclick="toggleContent('team_gnius')">
+        <div class="title">
+            <span>🤝 Actividad 4: Team Gnius (3 pasos)</span>
+            <span>⏰ Tiempo Total: 7 minutos</span>
+        </div>
+        <div class="subtitle">Compartiendo y Reflexionando en Equipo</div>
+    </div>
+    <div id="team_gnius" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (1 minuto): Proyectar Diapositiva 16 "Compartiendo el Diseño".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Ahora que han terminado sus diseños, quiero que se acerquen a la pareja más cercana que tengan. Pregúntense mutuamente qué tareas realizaron para crear su árbol en Tinkercad. Van a tener 2 minutos para esto.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (5 minutos): Proyectar Diapositiva 17 "Reflexionando sobre las Tareas".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Para diseñar un árbol en Tinkercad, algunas de las tareas que pudieron haber realizado incluyen: elegir las formas básicas, organizarlas en el plano de trabajo, ajustar las dimensiones de cada forma, y combinar diferentes elementos para crear un diseño coherente. Hablen sobre cómo dividieron esas tareas o cómo se organizaron para completar el diseño. El tiempo para compartir y revisar sus tareas empieza... ¡Ahora!</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (1 minuto): Proyectar Diapositiva 18 "Conclusión de Team Gnius".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">¡Gran trabajo colaborando y reflexionando en equipo! Espero que hayan aprendido mucho de sus compañeros. Este tipo de intercambio de ideas es clave para mejorar y aprender nuevas formas de hacer las cosas. Ahora estamos listos para la siguiente misión.</div>
+        </div>
+    </div>
+</div>
+<!-- Actividad 5 (1 paso) -->
+<div id="activity-5" class="activity">
+    <div class="banner" onclick="toggleContent('honor_dojo')">
+        <div class="title">
+            <span>🏆 Actividad 5: Honor de Dojo (1 paso)</span>
+            <span>⏰ Tiempo Total: 1 minuto</span>
+        </div>
+        <div class="subtitle">Recogida y cierre de la clase</div>
+    </div>
+    <div id="honor_dojo" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (1 minuto): Proyectar Diapositiva 18 y reproducir la animación de honor de dojo.</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Limpien las notas que hayan hecho en sus magic tablets y entréguenmelas conforme vayan saliendo del salón. ¡Gran trabajo hoy, genios! Gracias por su esfuerzo y dedicación, y recuerden siempre cuidar nuestro espacio de aprendizaje. ¡Nos vemos en la próxima misión!</div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</body>
+</html>
